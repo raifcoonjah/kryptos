@@ -1,9 +1,11 @@
 ---
 - name: faster doc animation
   ansible.builtin.shell: defaults write "com.apple.dock" autohide-time-modifier -float 0.12;killall dock
+  ignore_errors: true
 
 - name: remove all apps in dock
   ansible.builtin.shell: defaults write "com.apple.dock" "persistent-apps" -array;killall dock
+  ignore_errors: true
 
 - name: set dock to bottom
   ansible.builtin.shell: defaults write com.apple.dock "orientation" -string "bottom" && killall Dock
