@@ -57,23 +57,23 @@
 - name: kill dock
   ansible.builtin.shell: killall Dock
 
-- name: Sleep for 15 seconds and continue with play
+- name: Sleep for 5 seconds and continue with play
   ansible.builtin.wait_for:
-    timeout: 15
+    timeout: 5
 
 - name: kill SystemUIServer
   ansible.builtin.shell: killall SystemUIServer
 
-- name: Sleep for 15 seconds and continue with play
+- name: Sleep for 5 seconds and continue with play
   ansible.builtin.wait_for:
-    timeout: 15
+    timeout: 5
 
 - name: kill safari
   ansible.builtin.shell: killall Safari
 
-- name: Sleep for 15 seconds and continue with play
+- name: Sleep for 5 seconds and continue with play
   ansible.builtin.wait_for:
-    timeout: 15
+    timeout: 5
 
 - name: kill finder
   ansible.builtin.shell: killall Finder
