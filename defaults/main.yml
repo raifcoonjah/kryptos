@@ -24,3 +24,6 @@ brew_packages:
   - iina
   - obs
   - syncthing
+  - mas
+  - speedtest-cli
+  - hblock
