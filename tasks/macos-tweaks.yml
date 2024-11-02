@@ -55,7 +55,7 @@
   ansible.builtin.shell: defaults write -g InitialKeyRepeat -int 10
 
 - name: kill dock
-  ansible.builtin.shell: killall dock
+  ansible.builtin.shell: killall Dock
 
 - name: Sleep for 30 seconds and continue with play
   ansible.builtin.wait_for:
