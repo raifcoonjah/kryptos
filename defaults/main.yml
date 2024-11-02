@@ -25,3 +25,4 @@ brew_packages:
   - mas
   - speedtest-cli
   - hblock
+  - starship
