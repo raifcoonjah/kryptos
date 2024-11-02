@@ -53,6 +53,9 @@
 - name: decrease activity monitor speed 
   ansible.builtin.shell: defaults write com.apple.ActivityMonitor "UpdatePeriod" -int "1" && killall Activity\ Monitor
 
+- name: FAST key repeat rate
+  ansible.builtin.shell: defaults write -g InitialKeyRepeat -int 10
+
 - community.general.homebrew:
     name: "{{ item }}"
     state: present
@@ -63,3 +66,5 @@
   ansible.builtin.get_url:
     url: https://macitbetter.com/BetterZip.zip
     dest: ~/Downloads
+
+- name: 
