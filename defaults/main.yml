@@ -1,0 +1,24 @@
+---
+# defaults file for kryptos
+brew_packages:
+  - vscodium
+  - git
+  - tmux
+  - htop
+  - python3
+  - tree
+  - fzf
+  - coreutils
+  - firefox
+  - discord
+  - spotify
+  - vlc
+  - wget2
+  - btop
+  - p7zip
+  - unrar
+  - iterm
+  - asciinema
+  - unzip
+  - sublime-text
+  - iina
