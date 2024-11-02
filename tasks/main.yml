@@ -1,50 +1,50 @@
 ---
 - name: faster doc animation
-  ansible.builtin.shell: defaults write "com.apple.dock" autohide-time-modifier -float 0.12;killall dock
+  ansible.builtin.shell: defaults write "com.apple.dock" autohide-time-modifier -float 0.12
   ignore_errors: true
 
 - name: remove all apps in dock
-  ansible.builtin.shell: defaults write "com.apple.dock" "persistent-apps" -array;killall dock
+  ansible.builtin.shell: defaults write "com.apple.dock" "persistent-apps" -array
   ignore_errors: true
 
 - name: set dock to bottom
-  ansible.builtin.shell: defaults write com.apple.dock "orientation" -string "bottom" && killall Dock
+  ansible.builtin.shell: defaults write com.apple.dock "orientation" -string "bottom"
 
 - name: change screenshot location
-  ansible.builtin.shell: defaults write com.apple.screencapture "location" -string "~/Pictures/Screenshot" && killall SystemUIServer
+  ansible.builtin.shell: defaults write com.apple.screencapture "location" -string "~/Pictures/Screenshot"
 
 - name: set screenshot type to png
   ansible.builtin.shell: defaults write com.apple.screencapture "type" -string "png"
 
 - name: safari display full URL
-  ansible.builtin.shell: defaults write com.apple.Safari "ShowFullURLInSmartSearchField" -bool "true" && killall Safari
+  ansible.builtin.shell: defaults write com.apple.Safari "ShowFullURLInSmartSearchField" -bool "true"
 
 - name: quit finder
-  ansible.builtin.shell: defaults write com.apple.finder "QuitMenuItem" -bool "true" && killall Finder
+  ansible.builtin.shell: defaults write com.apple.finder "QuitMenuItem" -bool "true"
 
 - name: finder path
-  ansible.builtin.shell: defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
+  ansible.builtin.shell: defaults write com.apple.finder "ShowPathbar" -bool "true"
 
 - name: set gallery view 
-  ansible.builtin.shell: defaults write com.apple.finder "FXPreferredViewStyle" -string "glyv" && killall Finder
+  ansible.builtin.shell: defaults write com.apple.finder "FXPreferredViewStyle" -string "glyv"
 
 - name: keep folders top
-  ansible.builtin.shell: defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
+  ansible.builtin.shell: defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
 
 - name: empty bin after 30 days
-  ansible.builtin.shell: defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true" && killall Finder
+  ansible.builtin.shell: defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
 
 - name: ignore warning change file extention
-  ansible.builtin.shell: defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false" && killall Finder
+  ansible.builtin.shell: defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
 
 - name: do not save docs in icloud
   ansible.builtin.shell: defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "false"
 
 - name: toolbar hover 
-  ansible.builtin.shell: defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0" && killall Finder
+  ansible.builtin.shell: defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0"
 
 - name: sidebar icon size small
-  ansible.builtin.shell: defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "1" && killall Finder
+  ansible.builtin.shell: defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "1"
 
 - name: disable mouse acceleration
   ansible.builtin.shell: defaults write NSGlobalDomain com.apple.mouse.linear -bool "true"
@@ -53,7 +53,7 @@
   ansible.builtin.shell: defaults write com.apple.appleseed.FeedbackAssistant "Autogather" -bool "false"
 
 - name: decrease activity monitor speed 
-  ansible.builtin.shell: defaults write com.apple.ActivityMonitor "UpdatePeriod" -int "1" && killall Activity\ Monitor
+  ansible.builtin.shell: defaults write com.apple.ActivityMonitor "UpdatePeriod" -int "1"
 
 - name: FAST key repeat rate
   ansible.builtin.shell: defaults write -g InitialKeyRepeat -int 10
