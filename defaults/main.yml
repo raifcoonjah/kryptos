@@ -16,8 +16,6 @@ brew_packages:
   - wget2
   - btop
   - p7zip
-  - unrar
-  - iterm
   - asciinema
   - unzip
   - sublime-text
