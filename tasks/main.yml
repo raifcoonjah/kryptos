@@ -16,9 +16,6 @@
 - name: set screenshot type to png
   ansible.builtin.shell: defaults write com.apple.screencapture "type" -string "png"
 
-- name: safari display full URL
-  ansible.builtin.shell: defaults write com.apple.Safari "ShowFullURLInSmartSearchField" -bool "true"
-
 - name: quit finder
   ansible.builtin.shell: defaults write com.apple.finder "QuitMenuItem" -bool "true"
 
