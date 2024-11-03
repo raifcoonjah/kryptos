@@ -1,79 +1,73 @@
-- name: faster doc animation
+- name: Faster dock autohide
   ansible.builtin.shell: defaults write "com.apple.dock" autohide-time-modifier -float 0.12
   ignore_errors: true
 
-- name: remove all apps in dock
+- name: Remove all application in dock
   ansible.builtin.shell: defaults write "com.apple.dock" "persistent-apps" -array
   ignore_errors: true
 
-- name: set dock to bottom
+- name: Set dock to bottom
   ansible.builtin.shell: defaults write com.apple.dock "orientation" -string "bottom"
 
-- name: change screenshot location
+- name: Change screenshot location
   ansible.builtin.shell: defaults write com.apple.screencapture "location" -string "~/Pictures/Screenshot"
 
-- name: set screenshot type to png
+- name: Set screenshot image format to png
   ansible.builtin.shell: defaults write com.apple.screencapture "type" -string "png"
 
-- name: quit finder
+- name: Allow quit finder
   ansible.builtin.shell: defaults write com.apple.finder "QuitMenuItem" -bool "true"
 
-- name: finder path
+- name: Show finder path
   ansible.builtin.shell: defaults write com.apple.finder "ShowPathbar" -bool "true"
 
-- name: set gallery view 
-  ansible.builtin.shell: defaults write com.apple.finder "FXPreferredViewStyle" -string "glyv"
-
-- name: keep folders top
+- name: Show folders before files
   ansible.builtin.shell: defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
 
-- name: empty bin after 30 days
+- name: Empty bin after 30 days
   ansible.builtin.shell: defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
 
-- name: ignore warning change file extention
+- name: Ignore changing file extention
   ansible.builtin.shell: defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
 
-- name: do not save docs in icloud
+- name: Do not save docs in icloud
   ansible.builtin.shell: defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "false"
 
-- name: toolbar hover 
+- name: Faster toolbar hover
   ansible.builtin.shell: defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0"
 
-- name: sidebar icon size small
-  ansible.builtin.shell: defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "1"
-
-- name: disable mouse acceleration
+- name: Disable mouse acceleration
   ansible.builtin.shell: defaults write NSGlobalDomain com.apple.mouse.linear -bool "true"
 
-- name: disable large files autogather
+- name: Disable large file autogather
   ansible.builtin.shell: defaults write com.apple.appleseed.FeedbackAssistant "Autogather" -bool "false"
 
-- name: decrease activity monitor speed 
+- name: Decrease activity monitor speed
   ansible.builtin.shell: defaults write com.apple.ActivityMonitor "UpdatePeriod" -int "1"
 
-- name: FAST key repeat rate
+- name: Faster key repeat rate
   ansible.builtin.shell: defaults write -g InitialKeyRepeat -int 10
 
-- name: kill dock
+- name: Kill MacOS dock
   ansible.builtin.shell: killall Dock
 
-- name: Sleep for 5 seconds and continue with play
+- name: Wait 5 seconds
   ansible.builtin.wait_for:
     timeout: 5
 
-- name: kill SystemUIServer
+- name: Kill MacOS SystemUIServer
   ansible.builtin.shell: killall SystemUIServer
 
-- name: Sleep for 5 seconds and continue with play
+- name: Wait 5 seconds
   ansible.builtin.wait_for:
     timeout: 5
 
-- name: kill safari
+- name: Kill MacOS safari
   ansible.builtin.shell: killall Safari
 
-- name: Sleep for 5 seconds and continue with play
+- name: Wait 5 seconds
   ansible.builtin.wait_for:
     timeout: 5
 
-- name: kill finder
+- name: Kill finder
   ansible.builtin.shell: killall Finder
